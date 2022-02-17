@@ -3,14 +3,14 @@ os.loadAPI("libs/utils.lua")
 
 function burnWood()
     turtle.select(1)
-    local furnace = utilities.isInInv("minecraft:furnace", 1)
-    local wood = utilities.isInInv("minecraft:oak_log", 1)
+    local furnace = utils.isInInv("minecraft:furnace", 1)
+    local wood = utils.isInInv("minecraft:oak_log", 1)
     if furnace == -1 then
         return
     end
     while wood < 16 and wood > 0 do
         while turtle.getItemCount(wood) < 2 do
-            wood = utilities.isInInv("minecraft:oak_log", wood+1)
+            wood = utils.isInInv("minecraft:oak_log", wood+1)
             if wood == -1 then
                 return
             end
