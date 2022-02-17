@@ -1,4 +1,4 @@
-os.loadAPI("scripts/utilities")
+os.loadAPI("scripts/utils.lua")
 
 
 function burnWood()

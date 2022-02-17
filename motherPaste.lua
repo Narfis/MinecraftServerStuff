@@ -7,9 +7,9 @@ function readAll(theLink, name)
 end
 
 fs.makeDir("scripts")
-fs.makeDir("scripts/miner")
-fs.makeDir("scripts/woodchuck")
+fs.makeDir("scripts/miner.lua")
+fs.makeDir("scripts/woodchuck.lua")
 
 
-readAll("https://pastebin.com/raw/z34t40W7", "scripts/utilities")
-readAll("https://pastebin.com/raw/DKgngctY", "woodchuck")
+readAll("https://pastebin.com/raw/z34t40W7", "scripts/utils.lua")
+readAll("https://pastebin.com/raw/DKgngctY", "woodchuck.lua")

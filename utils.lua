@@ -1,10 +1,18 @@
-function contains(list, val)
-    for i, value in ipairs(list) do
+function contains(table, val)
+    for i, value in ipairs(table) do
         if value == val then
             return true
         end
     end
     return false
+end
+
+function tableLength(table, val)
+    local count = 0
+    for i in ipairs(table) do
+        count = count + 1
+    end
+    return count
 end
 
 
