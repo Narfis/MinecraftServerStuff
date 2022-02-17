@@ -1,4 +1,4 @@
-os.loadAPI("scripts/utils.lua")
+os.loadAPI("libs/utils.lua")
 
 local directions = {
     FORWARD = 1,
