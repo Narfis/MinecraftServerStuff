@@ -17,4 +17,4 @@ readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/wo
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/miner.lua", "scripts/miner.lua")
 
 
-fs.delete("motherPaste.lua")
+fs.delete("motherPastexd")
