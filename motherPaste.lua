@@ -11,6 +11,6 @@ fs.makeDir("scripts/miner.lua")
 fs.makeDir("scripts/woodchuck.lua")
 
 
-readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/utils.lua", "scripts/utilities.lua")
+readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/utils.lua", "scripts/utils.lua")
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/woodchuck.lua", "woodchuck.lua")
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/miner.lua", "miner.lua")
