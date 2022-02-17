@@ -1,3 +1,5 @@
+os.loadAPI("libs/utils.lua")
+
 function formation()
     local count = 0
     local a = isInInv("computercraft:turtle_expanded", 1)
