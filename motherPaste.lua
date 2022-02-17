@@ -7,8 +7,11 @@ function readAll(theLink, name)
 end
 
 fs.makeDir("scripts")
+fs.makeDir("libs")
 
+--libs
+readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/utils.lua", "libs/utils.lua")
 
-readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/utils.lua", "scripts/utils.lua")
+--scripts
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/woodchuck.lua", "scripts/woodchuck.lua")
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/miner.lua", "scripts/miner.lua")
