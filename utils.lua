@@ -26,3 +26,12 @@ function isInInv(s, start)
     end
     return -1
 end
+
+function getEmptySpace()
+    for i = 1, 16 do
+        if turtle.getItemCount(i) == 0 then
+            return i
+        end
+    end 
+    return -1
+end

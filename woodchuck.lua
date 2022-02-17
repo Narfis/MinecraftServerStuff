@@ -21,7 +21,7 @@ function burnWood()
         turtle.select(furnace)
         turtle.place()
         
-        local woodSplit = getEmptySpace()
+        local woodSplit = ultils.getEmptySpace()
         if woodSplit ~= -1 then
             turtle.select(wood)
             turtle.dropDown(turtle.getItemCount()/2)
@@ -38,14 +38,5 @@ function burnWood()
     end
 end
 
-
-function getEmptySpace()
-    for i = 1, 16 do
-        if turtle.getItemCount(i) == 0 then
-            return i
-        end
-    end 
-    return -1
-end
 
 burnWood()
