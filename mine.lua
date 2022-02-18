@@ -30,7 +30,7 @@ for i = 1,64 do
 end
 
 for i = 1, 64 do
-    if ~turtle.detectDown() then
+    if turtle.detectDown() == false then
         slot = utils.isInInv("minecraft:cobblestone", 1)
         if slot ~= 1 then
             turtle.select(slot)
