@@ -32,9 +32,10 @@ end
 for i = 1, 64 do
     if turtle.detectDown() == false then
         slot = utils.isInInv("minecraft:cobblestone", 1)
-        if slot ~= 1 then
+        if slot ~= -1 then
             turtle.select(slot)
             turtle.placeDown()
         end
     end
+    turtle.back()
 end
