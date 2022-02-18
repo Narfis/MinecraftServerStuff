@@ -17,6 +17,9 @@ end
 
 
 function isInInv(s, start) 
+    if start > 16 then
+        return -1
+    end
     for i = start, 16 do
         if turtle.getItemCount(i) > 0 then
             if turtle.getItemDetail(i).name == s then
