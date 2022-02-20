@@ -16,13 +16,13 @@ function tableLength(table, val)
 end
 
 
-function isInInv(s, start) 
+function isInInv(itemId, start) 
     if start > 16 then
         return -1
     end
     for i = start, 16 do
         if turtle.getItemCount(i) > 0 then
-            if turtle.getItemDetail(i).name == s then
+            if turtle.getItemDetail(i).name == itemId then
                 return i
             end
         end
