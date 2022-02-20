@@ -38,5 +38,31 @@ function burnWood()
     end
 end
 
+--refuel on coal 80 steps
+function CalcFuel(range)
+    local curr = turtle.getFuelLevel()
+    if curr < (range * 2 + 100) then
+        local numberOfCoal = (range * 2 + 100)//80
+        print(numberOfCoal)
+        while curr < (range * 2 + 100) do
+            local getItem = utils.isInInv("minecraft:coal", 1)
+            if getItem == -1 then
+                print("Not enough coal, get some more you poor ass bitch")
+                return -1
+            end
+            print(getItem)
+        end
+    end
+end
 
-burnWood()
+
+
+function GetMeSomeWoody(max)
+    local fuel = CalcFuel(max)
+    if fuel == -1 then
+        print("Fucking retard")
+        return
+    end
+end
+
+GetMeSomeWoody(10000)
