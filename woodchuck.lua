@@ -68,6 +68,9 @@ function GetMeSomeWoody(max)
         return
     end
     for i = 1, max do
+        if turtle.getItemCount(16) then
+            DropEverythingButLogs()
+        end
         if turtle.detect() then
            DetectBoi(0)
         end
@@ -96,6 +99,16 @@ function GetMeSomeWoody(max)
     while turtle.detectDown() ~= true do
         turtle.down()
     end
+end
+
+function DropEverythingButLogs() 
+    for i = 1, 16 do
+        if string.match(turtle.getItemDetail(i), "log") == false then
+            turtle.select(i)
+            turtle.drop()
+        end
+    end
+    turtle.select(1)
 end
 
 function Mover()
