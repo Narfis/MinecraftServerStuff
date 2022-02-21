@@ -129,13 +129,12 @@ function DetectBoi(rot)
         if rot == -1 or rot == 1 then
             turtle.back()
         end
-    else if rot == 0 then
+    elseif rot == 0 then
         turtle.digUp()
         turtle.up()
         turtle.forward()
         forwardCounter = forwardCounter + 1
     end
-
 end
 
 print("How far?")
