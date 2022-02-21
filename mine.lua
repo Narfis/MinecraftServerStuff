@@ -23,8 +23,10 @@ ores = {
 }
 function DoMine()
     for i = 1,128 do
-        if turtle.getItemCount(16) > 0 then
+        local fullCount = 0
+        if turtle.getItemCount(16) > 0 and fullCount < 3 then
             DropStuff()
+            fullCount = fullCount + 1
         end
         turtle.dig()
         turtle.digUp()
