@@ -82,25 +82,28 @@ function GetMeSomeWoody(max)
             else
                 turtle.up()
                 turtle.digUp()
+                turtle.forward()
             end
         else
             if turtle.detectDown() ~= true then
                 turtle.down()
+            else
+                turtle.forward()
             end
         end
     end
     turtle.turnRight()
     turtle.turnRight()
-    for i = 1, 50 do
-        turtle.digUp()
-        turtle.up()
-    end
-    for i = 1, max do
-        turtle.forward()
-    end
-    while turtle.detectDown() ~= true do
-        turtle.down()
-    end
+   -- for i = 1, 50 do
+    --    turtle.digUp()
+     --   turtle.up()
+    --end
+   -- for i = 1, max do
+    --    turtle.forward()
+   -- end
+   -- while turtle.detectDown() ~= true do
+    --    turtle.down()
+    --end
 end
 
 GetMeSomeWoody(10000)
