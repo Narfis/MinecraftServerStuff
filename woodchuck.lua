@@ -79,14 +79,14 @@ function GetMeSomeWoody(max)
         turtle.turnLeft()
         turtle.turnLeft()
         if turtle.detect() then
-            turtle.DetectBoi(-1)
+            DetectBoi(-1)
         end
         turtle.turnRight()
         Mover()
     end
     turtle.turnRight()
     turtle.turnRight()
-    for i = 1, 50 do
+    for i = 1, 5 do
         turtle.digUp()
         turtle.up()
     end
