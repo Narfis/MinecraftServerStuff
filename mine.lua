@@ -21,6 +21,17 @@ ores = {
     "minecraft:deepslate_lapis_ore",
     "minecraft:deepslate_redstone_ore"
 }
+dropList  = {
+    "minecraft:diamond",
+    "minecraft:redstone",
+    "minecraft:raw_iron",
+    "minecraft:raw_gold",
+    "minecraft:coal",
+    "minecraft:lapis",
+    "minecraft:emerald"
+}
+
+
 function DoMine()
     for i = 1,128 do
         local fullCount = 0
@@ -54,8 +65,8 @@ function DropStuff()
         if turtle.getItemCount(i) > 0 then
             local yes = turtle.getItemDetail(i)
             local inOres = false
-            for j = 1, utils.tableLength(ores) do
-                if yes == ores[j] then
+            for j = 1, utils.tableLength(dropList) do
+                if yes == dropList[j] then
                     inOres = true
                 end
             end
