@@ -69,7 +69,7 @@ function GetMeSomeWoody(max)
     for i = 1, max do
         if turtle.detect() then
             local y, data = turtle.inspect()
-            if strings.match(data.name, "grass") then
+            if string.match(data.name, "grass") then
                 turtle.dig()
                 turtle.forward()
             end
@@ -110,4 +110,10 @@ function GetMeSomeWoody(max)
     end
 end
 
-GetMeSomeWoody(10000)
+local choice = read("How far?")
+
+if tonumber(choice) then
+    GetMeSomeWoody(tonumber(choice))
+else
+    print("Not a number u donkey")
+end 
