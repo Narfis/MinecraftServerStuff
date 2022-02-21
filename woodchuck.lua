@@ -110,7 +110,7 @@ end
 
 function DetectBoi(rot)
     local y, data = turtle.inspect()
-    if data.name == "minecraft:tallgrass" then
+    if data.name == "minecraft:tallgrass" and rot == 0 then
         turtle.dig()
         turtle.forward()
         forwardCounter = forwardCounter + 1
@@ -126,16 +126,16 @@ function DetectBoi(rot)
         while turtle.detectDown() ~= true do
             turtle.down()
         end
-    else
+        if rot == -1 or rot == 1 then
+            turtle.back()
+        end
+    else if rot == 0 then
         turtle.digUp()
         turtle.up()
         turtle.forward()
         forwardCounter = forwardCounter + 1
     end
 
-    if rot == -1 or rot == 1 then
-        turtle.back()
-    end
 end
 
 print("How far?")
