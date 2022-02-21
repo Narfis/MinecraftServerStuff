@@ -63,7 +63,7 @@ end
 function DropStuff()
     for i = 1, 16 do
         if turtle.getItemCount(i) > 0 then
-            local yes = turtle.getItemDetail(i)
+            local yes = turtle.getItemDetail(i).name
             local inOres = false
             for j = 1, utils.tableLength(dropList) do
                 if yes == dropList[j] then
