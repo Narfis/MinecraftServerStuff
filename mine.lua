@@ -23,6 +23,9 @@ ores = {
 }
 function DoMine()
     for i = 1,128 do
+        if turtle.getItemCount(16) > 0 then
+            DropStuff()
+        end
         turtle.dig()
         turtle.digUp()
         turtle.forward()
@@ -40,6 +43,26 @@ function DoMine()
     turtle.back()
     end
 end
+
+function DropStuff()
+    for i = 1, 16 do
+        if turtle.getItemCount(i) > 0 then
+            local yes = turtle.getItemDetail(i)
+            local inOres = false
+            for j = 1, utils.tableLength(ores) do
+                if yes == ores[j] then
+                    inOres = true
+                end
+            end
+            if inOres == false then
+                turtle.select(i)
+                turtle.drop()
+                turtle.select(1)
+            end
+        end
+    end
+end
+
 print("Give direction, 1 for right and -1 for left")
 dir = tonumber(read())
 while utils.CalcFuel(128) ~= -1 do
