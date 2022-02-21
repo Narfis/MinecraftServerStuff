@@ -1,6 +1,6 @@
 os.loadAPI("scripts/miner.lua")
 os.loadAPI("libs/utils.lua")
-
+full = false
 ores = {
     "minecraft:gold_ore",
     "minecraft:iron_ore",
@@ -27,6 +27,9 @@ function DoMine()
         if turtle.getItemCount(16) > 0 and fullCount < 3 then
             DropStuff()
             fullCount = fullCount + 1
+        end
+        if fullCount > 1 then
+            full = true
         end
         turtle.dig()
         turtle.digUp()
@@ -67,7 +70,7 @@ end
 
 print("Give direction, 1 for right and -1 for left")
 dir = tonumber(read())
-while utils.CalcFuel(128) ~= -1 do
+while utils.CalcFuel(128) ~= -1 and full == false do
     DoMine()
     turtle.back()
     if dir == 1 then
