@@ -110,7 +110,8 @@ function GetMeSomeWoody(max)
     end
 end
 
-local choice = read("How far?")
+print("How far?")
+local choice = read()
 
 if tonumber(choice) then
     GetMeSomeWoody(tonumber(choice))
