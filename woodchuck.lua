@@ -65,6 +65,42 @@ function GetMeSomeWoody(max)
         print("Fucking retard")
         return
     end
+
+    for i = 1, max do
+        if turtle.detect() then
+            local data = turtle.inspect()
+            if string.match(data.name, "log") then
+                turtle.dig()
+                turtle.forward()
+                while turtle.detectUp() do
+                    turtle.digUp()
+                    turtle.up()
+                end
+                while ~turtle.detectDown() do
+                    turtle.down()
+                end
+            else
+                turtle.up()
+                turtle.digUp()
+            end
+        else
+            if ~turtle.detectDown() then
+                turtle.down()
+            end
+        end
+    end
+    turtle.turnRight()
+    turtle.turnRight()
+    for i = 1, 50 do
+        turtle.digUp()
+        turtle.up()
+    end
+    for i = 1, max do
+        turtle.forward()
+    end
+    while ~turtle.detectDown() do
+        turtle.down()
+    end
 end
 
 GetMeSomeWoody(10000)
