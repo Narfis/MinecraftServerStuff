@@ -68,7 +68,7 @@ function GetMeSomeWoody(max)
         return
     end
     for i = 1, max do
-        if turtle.getItemCount(16) then
+        if turtle.getItemCount(16) > 0 then
             DropEverythingButLogs()
         end
         if turtle.detect() then
@@ -88,7 +88,7 @@ function GetMeSomeWoody(max)
     end
     turtle.turnRight()
     turtle.turnRight()
-    for i = 1, 5 do
+    for i = 1, 20 do
         turtle.digUp()
         turtle.up()
     end
@@ -101,11 +101,13 @@ function GetMeSomeWoody(max)
     end
 end
 
-function DropEverythingButLogs() 
+function DropEverythingButLogs()
     for i = 1, 16 do
-        if string.match(turtle.getItemDetail(i), "log") == false then
-            turtle.select(i)
-            turtle.drop()
+        if turtle.getItemCount(i) > 0 then
+            if string.match(turtle.getItemDetail(i).name, "log") == nil then
+                turtle.select(i)
+                turtle.drop()
+            end
         end
     end
     turtle.select(1)
@@ -145,6 +147,7 @@ function DetectBoi(rot)
     elseif rot == 0 and (data.name ~= "minecraft:grass" or data.name ~= "minecraft:tallgrass") then
         turtle.digUp()
         turtle.up()
+        turtle.dig()
         turtle.forward()
         ForwardCounter = ForwardCounter + 1
     end
