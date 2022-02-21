@@ -76,7 +76,7 @@ function GetMeSomeWoody(max)
                     turtle.digUp()
                     turtle.up()
                 end
-                while ~turtle.detectDown() do
+                while turtle.detectDown() ~= true do
                     turtle.down()
                 end
             else
@@ -84,7 +84,7 @@ function GetMeSomeWoody(max)
                 turtle.digUp()
             end
         else
-            if ~turtle.detectDown() then
+            if turtle.detectDown() ~= true then
                 turtle.down()
             end
         end
@@ -98,7 +98,7 @@ function GetMeSomeWoody(max)
     for i = 1, max do
         turtle.forward()
     end
-    while ~turtle.detectDown() do
+    while turtle.detectDown() ~= true do
         turtle.down()
     end
 end
