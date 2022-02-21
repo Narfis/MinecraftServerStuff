@@ -45,13 +45,13 @@ function CalcFuel(range)
         local numberOfCoal = (range * 2 + 100)/80
         while curr < (range * 2 + 100) do
             local getItem = utils.isInInv("minecraft:coal", 1)
-            turtle.select(getItem)
-            turtle.refuel()
-            curr = turtle.getFuelLevel()
             if getItem == -1 then
                 print("Not enough coal, get some more you poor ass bitch")
                 return -1
             end
+            turtle.select(getItem)
+            turtle.refuel()
+            curr = turtle.getFuelLevel()
             print(getItem)
         end
     end
