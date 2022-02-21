@@ -1,6 +1,5 @@
 os.loadAPI("scripts/miner.lua")
 os.loadAPI("libs/utils.lua")
-os.loadAPI("scripts/woodchuck.lua")
 
 ores = {
     "minecraft:gold_ore",
