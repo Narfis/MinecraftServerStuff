@@ -68,7 +68,11 @@ function GetMeSomeWoody(max)
 
     for i = 1, max do
         if turtle.detect() then
-            local data = turtle.inspect()
+            local y, data = turtle.inspect()
+            if strings.match(data.name, "grass") then
+                turtle.dig()
+                turtle.forward()
+            end
             if string.match(data.name, "log") then
                 turtle.dig()
                 turtle.forward()
@@ -94,16 +98,16 @@ function GetMeSomeWoody(max)
     end
     turtle.turnRight()
     turtle.turnRight()
-   -- for i = 1, 50 do
-    --    turtle.digUp()
-     --   turtle.up()
-    --end
-   -- for i = 1, max do
-    --    turtle.forward()
-   -- end
-   -- while turtle.detectDown() ~= true do
-    --    turtle.down()
-    --end
+    for i = 1, 50 do
+        turtle.digUp()
+        turtle.up()
+    end
+    for i = 1, max do
+        turtle.forward()
+    end
+    while turtle.detectDown() ~= true do
+        turtle.down()
+    end
 end
 
 GetMeSomeWoody(10000)
