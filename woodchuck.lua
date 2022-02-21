@@ -109,7 +109,8 @@ end
 
 function DetectBoi(rot)
     local y, data = turtle.inspect()
-    if data.name == "minecraft:tallgrass" and rot == 0 then
+    print(data.name)
+    if (data.name == "minecraft:grass" or data.name == "minecraft:tallgrass") and rot == 0 then
         turtle.dig()
         turtle.forward()
         ForwardCounter = ForwardCounter + 1
@@ -128,7 +129,7 @@ function DetectBoi(rot)
         if rot == -1 or rot == 1 then
             turtle.back()
         end
-    elseif rot == 0 then
+    elseif rot == 0 and (data.name ~= "minecraft:grass" or data.name ~= "minecraft:tallgrass") then
         turtle.digUp()
         turtle.up()
         turtle.forward()
