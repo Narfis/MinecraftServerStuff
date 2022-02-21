@@ -1,6 +1,6 @@
 os.loadAPI("libs/utils.lua")
 
-local forwardCounter = 0
+ForwardCounter = 0
 
 
 function burnWood()
@@ -67,7 +67,6 @@ function GetMeSomeWoody(max)
         print("Fucking retard")
         return
     end
-    local forwardCounter = 0
     for i = 1, max do
         if turtle.detect() then
            DetectBoi(0)
@@ -90,7 +89,7 @@ function GetMeSomeWoody(max)
         turtle.digUp()
         turtle.up()
     end
-    for i = 1, forwardCounter do
+    for i = 1, ForwardCounter do
         turtle.forward()
         turtle.dig()
     end
@@ -104,7 +103,7 @@ function Mover()
         turtle.down()
     else
         turtle.forward()
-        forwardCounter = forwardCounter + 1
+        ForwardCounter = ForwardCounter + 1
     end
 end
 
@@ -113,12 +112,12 @@ function DetectBoi(rot)
     if data.name == "minecraft:tallgrass" and rot == 0 then
         turtle.dig()
         turtle.forward()
-        forwardCounter = forwardCounter + 1
+        ForwardCounter = ForwardCounter + 1
     end
     if string.match(data.name, "log") then
         turtle.dig()
         turtle.forward()
-        forwardCounter = forwardCounter + 1
+        ForwardCounter = ForwardCounter + 1
         while turtle.detectUp() do
             turtle.digUp()
             turtle.up()
@@ -133,7 +132,7 @@ function DetectBoi(rot)
         turtle.digUp()
         turtle.up()
         turtle.forward()
-        forwardCounter = forwardCounter + 1
+        ForwardCounter = ForwardCounter + 1
     end
 end
 
