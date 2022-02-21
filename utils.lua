@@ -38,3 +38,21 @@ function getEmptySpace()
     end 
     return -1
 end
+
+function CalcFuel(range)
+    local curr = turtle.getFuelLevel()
+    if curr < (range * 2 + 200) then
+        local numberOfCoal = (range * 2 + 100)/80
+        while curr < (range * 2 + 100) do
+            local getItem = utils.isInInv("minecraft:coal", 1)
+            if getItem == -1 then
+                print("Not enough coal, get some more you poor ass bitch")
+                return -1
+            end
+            turtle.select(getItem)
+            turtle.refuel()
+            curr = turtle.getFuelLevel()
+            print(getItem)
+        end
+    end
+end

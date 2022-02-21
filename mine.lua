@@ -43,7 +43,7 @@ function DoMine()
 end
 print("Give direction, 1 for right and -1 for left")
 dir = tonumber(read())
-while woodchuck.CalcFuel(128) ~= -1 do
+while utils.CalcFuel(128) ~= -1 do
     DoMine()
     turtle.back()
     if dir == 1 then
