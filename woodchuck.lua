@@ -1,5 +1,7 @@
 os.loadAPI("libs/utils.lua")
 
+local forwardCounter = 0
+
 
 function burnWood()
     turtle.select(1)
@@ -41,7 +43,7 @@ end
 --refuel on coal 80 steps
 function CalcFuel(range)
     local curr = turtle.getFuelLevel()
-    if curr < (range * 2 + 100) then
+    if curr < (range * 2 + 200) then
         local numberOfCoal = (range * 2 + 100)/80
         while curr < (range * 2 + 100) do
             local getItem = utils.isInInv("minecraft:coal", 1)
@@ -65,36 +67,22 @@ function GetMeSomeWoody(max)
         print("Fucking retard")
         return
     end
-
+    local forwardCounter = 0
     for i = 1, max do
         if turtle.detect() then
-            local y, data = turtle.inspect()
-            if string.match(data.name, "grass") then
-                turtle.dig()
-                turtle.forward()
-            end
-            if string.match(data.name, "log") then
-                turtle.dig()
-                turtle.forward()
-                while turtle.detectUp() do
-                    turtle.digUp()
-                    turtle.up()
-                end
-                while turtle.detectDown() ~= true do
-                    turtle.down()
-                end
-            else
-                turtle.up()
-                turtle.digUp()
-                turtle.forward()
-            end
-        else
-            if turtle.detectDown() ~= true then
-                turtle.down()
-            else
-                turtle.forward()
-            end
+           DetectBoi(0)
         end
+        turtle.turnRight()
+        if turtle.detect() then
+            DetectBoi(1)
+        end
+        turtle.turnLeft()
+        turtle.turnLeft()
+        if turtle.detect() then
+            turtle.DetectBoi(-1)
+        end
+        turtle.turnRight()
+        Mover()
     end
     turtle.turnRight()
     turtle.turnRight()
@@ -102,11 +90,51 @@ function GetMeSomeWoody(max)
         turtle.digUp()
         turtle.up()
     end
-    for i = 1, max do
+    for i = 1, forwardCounter do
         turtle.forward()
+        turtle.dig()
     end
     while turtle.detectDown() ~= true do
         turtle.down()
+    end
+end
+
+function Mover()
+    if turtle.detectDown() ~= true then
+        turtle.down()
+    else
+        turtle.forward()
+        forwardCounter = forwardCounter + 1
+    end
+end
+
+function DetectBoi(rot)
+    local y, data = turtle.inspect()
+    if data.name == "minecraft:tallgrass" then
+        turtle.dig()
+        turtle.forward()
+        forwardCounter = forwardCounter + 1
+    end
+    if string.match(data.name, "log") then
+        turtle.dig()
+        turtle.forward()
+        forwardCounter = forwardCounter + 1
+        while turtle.detectUp() do
+            turtle.digUp()
+            turtle.up()
+        end
+        while turtle.detectDown() ~= true do
+            turtle.down()
+        end
+    else
+        turtle.digUp()
+        turtle.up()
+        turtle.forward()
+        forwardCounter = forwardCounter + 1
+    end
+
+    if rot == -1 or rot == 1 then
+        turtle.back()
     end
 end
 
