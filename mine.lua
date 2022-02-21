@@ -35,7 +35,7 @@ dropList  = {
 function DoMine()
     for i = 1,128 do
         local fullCount = 0
-        if turtle.getItemCount(16) > 0 and fullCount < 3 then
+        if utils.getEmptySpace() ~= -1 and fullCount < 3 then
             DropStuff()
             fullCount = fullCount + 1
         end
