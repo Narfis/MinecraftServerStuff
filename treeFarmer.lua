@@ -1,3 +1,6 @@
+os.loadAPI("libs/utils.lua")
+
+
 function CreateFarm()
     --height 38
     local height = 5
@@ -24,6 +27,7 @@ function CreateFarm()
                 up = 1
             end 
             if i ~= depth then
+                utils.RemoveGravel()
                 turtle.dig()
                 turtle.forward()
             end
@@ -31,12 +35,14 @@ function CreateFarm()
         if width ~= k then
             if turn == 1 then
                 turtle.turnRight()
+                utils.RemoveGravel()
                 turtle.dig()
                 turtle.forward()
                 turtle.turnRight()
                 turn = -1
             elseif turn == -1 then
                 turtle.turnLeft()
+                utils.RemoveGravel()
                 turtle.dig()
                 turtle.forward()
                 turtle.turnLeft()
@@ -49,6 +55,7 @@ end
 function Farm()
 
 end
+
 
 
 

@@ -39,6 +39,15 @@ function getEmptySpace()
     return -1
 end
 
+function RemoveGravel()
+    local b, data = turtle.inspect()
+    while data.name == "minecraft:gravel" or data.name == "minecraft:sand" do
+        turtle.dig()
+        turtle.sleep(1)
+        b, data = turtle.inspect()
+    end
+end
+
 function CalcFuel(range)
     local curr = turtle.getFuelLevel()
     if curr < (range * 2 + 200) then
