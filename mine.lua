@@ -42,6 +42,11 @@ function DoMine()
         if fullCount > 1 then
             full = true
         end
+        local ooga, information = turtle.inspect()
+        while information.name == "minecraft:gravel" or information.name == "minecraft:sand" do
+            turtle.dig()
+            sleep(2)
+        end
         turtle.dig()
         turtle.digUp()
         turtle.forward()
