@@ -8,8 +8,8 @@ function CreateFarm()
     local turn = 1
     local up = 1
     for k = 1, width-1 do
-        for i = 1, depth -1 do
-            for j = 1, height do
+        for i = 1, depth do
+            for j = 1, height -1 do
                 if up == 1 then
                     turtle.digUp()
                     turtle.up()
@@ -18,6 +18,11 @@ function CreateFarm()
                     turtle.down()
                 end
             end
+            if up == 1 then
+                up = -1
+            elseif up == -1 then
+                up = 1
+            end 
             turtle.dig()
             turtle.forward()
         end
@@ -26,11 +31,13 @@ function CreateFarm()
             turtle.dig()
             turtle.forward()
             turtle.turnRight()
+            turn = -1
         elseif turn == -1 then
             turtle.turnLeft()
             turtle.dig()
             turtle.forward()
             turtle.turnLeft()
+            turn = 1
         end
     end
 end
