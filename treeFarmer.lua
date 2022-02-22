@@ -41,7 +41,7 @@ end
 
 
 
-io.write("1 to Farm trees, 2 to create a new farm")
+io.write("1 to Farm trees, 2 to create a new farm : ")
 local choice = tonumber(read())
 
 
