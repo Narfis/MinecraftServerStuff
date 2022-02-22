@@ -17,6 +17,7 @@ readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/wo
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/miner.lua", "scripts/miner.lua")
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/mine.lua", "scripts/mine.lua")
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/treeFarmer.lua", "treeFarm")
+readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/Dig.lua", "scripts/Dig.lua")
 
 
 fs.delete("motherPastexd")
