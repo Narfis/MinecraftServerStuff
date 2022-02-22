@@ -46,6 +46,7 @@ function DoMine()
         while information.name == "minecraft:gravel" or information.name == "minecraft:sand" do
             turtle.dig()
             sleep(2)
+            ooga, information = turtle.inspect()
         end
         turtle.dig()
         turtle.digUp()
@@ -84,7 +85,7 @@ function DropStuff()
     end
 end
 
-print("Give direction, 1 for right and -1 for left")
+print("Give direction, 1 for right and 0 for left")
 dir = tonumber(read())
 while utils.CalcFuel(128) ~= -1 and full == false do
     DoMine()
