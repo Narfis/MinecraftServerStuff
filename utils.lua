@@ -43,7 +43,7 @@ function RemoveGravel()
     local b, data = turtle.inspect()
     while data.name == "minecraft:gravel" or data.name == "minecraft:sand" do
         turtle.dig()
-        turtle.sleep(1)
+        sleep(1)
         b, data = turtle.inspect()
     end
 end
