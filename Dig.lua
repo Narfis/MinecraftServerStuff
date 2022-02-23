@@ -1,5 +1,3 @@
-DigRectangle(3, 3, 3)
-
 function DigRectangle(width, depth, height)
     for i = 1, depth do
 
@@ -36,3 +34,5 @@ function TryForward()
         moved = turtle.forward()
     end
 end
+
+DigRectangle(3, 3, 3)
