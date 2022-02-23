@@ -29,7 +29,7 @@ function DigRectangle(width, depth, height)
     end
 end
 
-function TryForward() do
+function TryForward()
     local moved = false
     while moved == false do
         turtle.dig()
