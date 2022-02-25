@@ -12,7 +12,7 @@ local directions = {
 function DigRectangle(width, depth, height)
     TryForward()
     local up = false
-    for i = 1, depth do
+    for i = 1, width do
         if i ~= 1 then
             if i % 2 == 0 then
                 turtle.turnLeft()
@@ -25,7 +25,7 @@ function DigRectangle(width, depth, height)
             end
         end
 
-        for j = 1, width do
+        for j = 1, depth do
 
             if up then
                 up = false
@@ -42,7 +42,7 @@ function DigRectangle(width, depth, height)
                     turtle.down()
                 end
             end
-            if j ~= width then
+            if j ~= depth then
                 TryForward()
             end
         end
