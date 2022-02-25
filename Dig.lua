@@ -15,7 +15,6 @@ function DigRectangle(width, depth, height)
         end
 
         for j = 1, width do
-            TryForward()
 
             if j % 2 == 0 then
                 up = false
