@@ -9,7 +9,47 @@ local directions = {
     BACK = 6
 }
 
-function check(ore_list)
+function DigRectangle(width, depth, height)
+    TryForward()
+    local up = false
+    for i = 1, depth do
+        if i ~= 1 then
+            if i % 2 == 0 then
+                turtle.turnLeft()
+                TryForward()
+                turtle.turnLeft()
+            else
+                turtle.turnRight()
+                TryForward()
+                turtle.turnRight()
+            end
+        end
+
+        for j = 1, width do
+
+            if up then
+                up = false
+            else
+                up = true
+            end
+
+            for k = 1, height - 1 do
+                if up then
+                    turtle.digUp()
+                    turtle.up()
+                else
+                    turtle.digDown()
+                    turtle.down()
+                end
+            end
+            if j ~= width then
+                TryForward()
+            end
+        end
+    end
+end
+
+function CheckForNode(ore_list)
     local path = {}
 
     local dir = checkAndDig(ore_list)
@@ -20,8 +60,7 @@ function check(ore_list)
     end
 
     while utils.tableLength(path) > 0 do
-        
-        dir = checkAndDig(ore_list)
+        dir = digUtils.ClearNode(ore_list)
         
         if dir ~= nil then
             for i, value in ipairs(dir) do
@@ -29,16 +68,15 @@ function check(ore_list)
             end
         
         else
-            walk(getOpposite(table.remove(path, utils.tableLength(path))))
+            Walk(GetOpposite(table.remove(path, utils.tableLength(path))))
         end
     end
 end
 
-function checkAndDig(ore_list)
+function ClearNode(ore_list)
     local has_block, data = turtle.inspect()
     if utils.contains(ore_list, data.name) then
-        turtle.dig()
-        turtle.forward()
+        TryForward()
         return { directions.FORWARD }
     end
 
@@ -59,8 +97,7 @@ function checkAndDig(ore_list)
     turtle.turnRight()
     local has_block, data = turtle.inspect()
     if utils.contains(ore_list, data.name) then
-        turtle.dig()
-        turtle.forward()
+        TryForward()
         return { directions.RIGHT, directions.FORWARD }
     end
 
@@ -68,8 +105,7 @@ function checkAndDig(ore_list)
     turtle.turnLeft()
     local has_block, data = turtle.inspect()
     if utils.contains(ore_list, data.name) then
-        turtle.dig()
-        turtle.forward()
+        TryForward()
         return { directions.LEFT, directions.FORWARD }
     end
     turtle.turnRight()
@@ -77,7 +113,7 @@ function checkAndDig(ore_list)
     return nil
 end
 
-function walk(direction)
+function Walk(direction)
     if (direction == directions.FORWARD) then
         turtle.forward()
     end
@@ -103,7 +139,7 @@ function walk(direction)
     end
 end
 
-function getOpposite(direction)
+function GetOpposite(direction)
     if (direction == directions.FORWARD) then
         return directions.BACK
     end
@@ -126,5 +162,13 @@ function getOpposite(direction)
 
     if (direction == directions.BACK) then
         return directions.FORWARD
+    end
+end
+
+function TryForward()
+    local moved = false
+    while moved == false do
+        turtle.dig()
+        moved = turtle.forward()
     end
 end

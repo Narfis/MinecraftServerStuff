@@ -11,13 +11,12 @@ fs.makeDir("libs")
 
 --libs
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/utils.lua", "libs/utils.lua")
+readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/digUtils.lua", "libs/digUtils.lua")
 
 --scripts
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/woodchuck.lua", "scripts/woodchuck.lua")
-readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/miner.lua", "scripts/miner.lua")
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/mine.lua", "scripts/mine.lua")
 readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/treeFarmer.lua", "treeFarm")
-readAll("https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/Dig.lua", "scripts/Dig.lua")
 
 
 fs.delete("motherPastexd")

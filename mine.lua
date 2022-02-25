@@ -1,4 +1,4 @@
-os.loadAPI("scripts/miner.lua")
+os.loadAPI("libs/digUtils.lua")
 os.loadAPI("libs/utils.lua")
 full = false
 ores = {
@@ -42,16 +42,9 @@ function DoMine()
         if fullCount > 1 then
             full = true
         end
-        local ooga, information = turtle.inspect()
-        while information.name == "minecraft:gravel" or information.name == "minecraft:sand" do
-            turtle.dig()
-            sleep(2)
-            ooga, information = turtle.inspect()
-        end
-        turtle.dig()
+        digUtils.TryForward()
         turtle.digUp()
-        turtle.forward()
-        miner.check(ores)
+        digUtils.CheckForNode(ores)
     end
     
     for i = 1, 128 do
