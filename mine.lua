@@ -27,7 +27,7 @@ dropList  = {
     "minecraft:raw_iron",
     "minecraft:raw_gold",
     "minecraft:coal",
-    "minecraft:lapis",
+    "minecraft:lapis_lazuli",
     "minecraft:emerald"
 }
 

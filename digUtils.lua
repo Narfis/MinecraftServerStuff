@@ -52,7 +52,7 @@ end
 function CheckForNode(ore_list)
     local path = {}
 
-    local dir = checkAndDig(ore_list)
+    local dir = ClearNode(ore_list)
     if dir ~= nil then
         for i, value in ipairs(dir) do
             table.insert(path, value)
