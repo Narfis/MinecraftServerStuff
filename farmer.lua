@@ -34,6 +34,7 @@ function CreateFarm()
     turtle.turnRight()
     turtle.turnRight()
     turtle.up()
+    turtle.back()
     PlaceFarm(getSize * 9, getSize * 9)
 end
 
@@ -44,8 +45,8 @@ function PlaceFarm(width, height)
             if turtle.getItemCount() <= 0 then
                 turtle.select(utils.isInInv("minecraft:dirt", 1))
             end
-            turtle.placeDown()
             turtle.forward()
+            turtle.placeDown()
 
         end
         if i % 2 == 0 then
