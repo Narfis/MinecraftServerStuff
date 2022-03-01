@@ -11,7 +11,7 @@ local directions = {
 
 function DigRectangle(width, depth, height, digUp)
     TryForward()
-    local up = digUp
+    local up = ~digUp
     for i = 1, width do
         if i ~= 1 then
             if i % 2 == 0 then

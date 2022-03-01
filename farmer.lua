@@ -4,7 +4,7 @@ os.loadAPI("libs/utils.lua")
 
 function CreateFarm()
     local getSize = tonumber(read())
-    local height = 1
+    local height = 2
     local totalDirt = 0
     for i = 1, 16 do
         if turtle.getItemCount(i) > 0 then
@@ -13,9 +13,10 @@ function CreateFarm()
             end
         end
     end
+    turtle.select(utils.getEmptySpace())
+    turtle.equipRight()
     local getPickaxe = utils.isInInv("minecraft:diamond_pickaxe", 1)
     if totalDirt < ((getSize*2)^2) then
-        turtle.equipRight()
         if  getPickaxe == -1 then
             print("Get a diamond diamond pickaxe before you start")
             sleep(2)
@@ -34,7 +35,7 @@ end
 
 
 function main()
-    os.write("Enter 1 to farm\nEnter 2 to create a farm")
+    print("Enter 1 to farm\nEnter 2 to create a farm")
     local choice = tonumber(read())
     if choice == 1 then
         return
