@@ -1,0 +1,2 @@
+
+local text = "local r = http.get('https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/motherPaste.lua')\n local file = fs.open(shell.resolve('newfile'))\n f.write(text.readAll()\n f.close()\n text.close()"
