@@ -9,7 +9,7 @@ function square()
     io.write("Depth : ")
     local depth = tonumber(read())
 
-    digUtils.DigRectangle(width, depth, height)
+    digUtils.DigRectangle(width, depth, height, true)
 end
 
 local woods = {
