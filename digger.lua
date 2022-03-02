@@ -49,32 +49,30 @@ function FarmWood(woodTypes)
         if left then
             left = false
             turtle.turnLeft()
-            digUtils.TryForward()
+            
+            local type = FindTree(woodTypes)
+            ChopTree(woodTypes)
+            type = GetType(type)
+
             turtle.turnLeft()
-            digUtils.TryForward()
-            turtle.turnRight()
-            FindTree()
-            turtle.turnRight()
-            digUtils.TryForward()
-            digUtils.TryForward()
-            turtle.turnLeft()
-            digUtils.TryForward()
-            turtle.turnLeft()
+
+            PlantSapling(type)
 
         else
             left = true
             turtle.turnRight()
-            digUtils.TryForward()
+            
+            local type = FindTree(woodTypes)
+            ChopTree(woodTypes)
+            type = GetType(type)
+
             turtle.turnRight()
-            digUtils.TryForward()
-            turtle.turnLeft()
-            FindTree()
-            turtle.turnLeft()
-            digUtils.TryForward()
-            digUtils.TryForward()
-            turtle.turnRight()
-            digUtils.TryForward()
-            turtle.turnRight()
+
+            PlantSapling(type)
+        end
+
+        if i == 1 then
+            depth = depth - 1
         end
 
     end
