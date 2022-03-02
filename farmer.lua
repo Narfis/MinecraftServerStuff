@@ -63,7 +63,6 @@ function CreateFarm()
 end
 
 function CreateWaterHoles(size)
-    turtle.forward()
     turtle.turnRight()
     turtle.forward()
     turtle.turnLeft()
