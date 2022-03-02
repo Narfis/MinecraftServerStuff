@@ -13,11 +13,13 @@ function square()
 end
 
 local woods = {
-    "minecraft:oak_log"
+    "minecraft:oak_log",
+    "minecraft:birch_log"
 }
 
 local saplings = {
-    "minecraft:oak_sapling"
+    "minecraft:oak_sapling",
+    "minecraft:birch_sapling"
 }
 
 function FarmWood(woodTypes)
@@ -35,8 +37,8 @@ function FarmWood(woodTypes)
     for i = 1, width do
         local choppedTrees = 0
         for j = 1, depth do
-            FindTree(woodTypes)
-            local type = ChopTree(woodTypes)
+            local type = FindTree(woodTypes)
+            ChopTree(woodTypes)
             type = GetType(type)
             choppedTrees = choppedTrees + 1
             PlantSapling(type)
