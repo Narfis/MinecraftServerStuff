@@ -17,20 +17,20 @@ function CreateFarm()
     turtle.select(utils.getEmptySpace())
     turtle.equipRight()
     local getPickaxe = utils.isInInv("minecraft:diamond_pickaxe", 1)
+    if  getPickaxe == -1 then
+        print("Get a diamond diamond pickaxe before you start")
+        sleep(2)
+        print("bitch")
+        return
+        
+    end
+    turtle.select(getPickaxe)
+    turtle.equipRight()
     if totalDirt < ((getSize*2)^2) then
-        if  getPickaxe == -1 then
-            print("Get a diamond diamond pickaxe before you start")
-            sleep(2)
-            print("bitch")
-            return
-            
-        end
         print("Not enough dirt bitchass")
         return
     end
 
-    turtle.select(getPickaxe)
-    turtle.equipRight()
     local yeet = CreateWaterSource()
     if yeet == -1 then
         return
