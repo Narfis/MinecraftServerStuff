@@ -122,10 +122,7 @@ function FillBuckets(numberOfBuckets)
     while filledBuckets < numberOfBuckets do
         local bucket = utils.isInInv("minecraft:bucket", 1)
         if bucket == -1 then
-            bucket = utils.isInInv("minecraft:water_bucket", 1)
-            if bucket == -1 then
-                return -1
-            end
+            return -1
         end
         turtle.select(bucket)
         turtle.placeDown()
