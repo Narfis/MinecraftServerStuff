@@ -14,12 +14,14 @@ end
 
 local woods = {
     "minecraft:oak_log",
-    "minecraft:birch_log"
+    "minecraft:birch_log",
+    "minecraft:spruce_log"
 }
 
 local saplings = {
     "minecraft:oak_sapling",
-    "minecraft:birch_sapling"
+    "minecraft:birch_sapling",
+    "minecraft:spruce_sapling"
 }
 
 function FarmWood(woodTypes)
@@ -43,6 +45,38 @@ function FarmWood(woodTypes)
             choppedTrees = choppedTrees + 1
             PlantSapling(type)
         end
+
+        if left then
+            left = false
+            turtle.turnLeft()
+            digUtils.TryForward()
+            turtle.turnLeft()
+            digUtils.TryForward()
+            turtle.turnRight()
+            FindTree()
+            turtle.turnRight()
+            digUtils.TryForward()
+            digUtils.TryForward()
+            turtle.turnLeft()
+            digUtils.TryForward()
+            turtle.turnLeft()
+
+        else
+            left = true
+            turtle.turnRight()
+            digUtils.TryForward()
+            turtle.turnRight()
+            digUtils.TryForward()
+            turtle.turnLeft()
+            FindTree()
+            turtle.turnLeft()
+            digUtils.TryForward()
+            digUtils.TryForward()
+            turtle.turnRight()
+            digUtils.TryForward()
+            turtle.turnRight()
+        end
+
     end
 end
 
