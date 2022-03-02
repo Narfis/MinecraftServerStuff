@@ -66,7 +66,8 @@ function CreateFarm()
 end
 
 function CreateWaterHoles(size)
-    for j = 1, size do
+    turtle.forward()
+    for j = 1, size/9 do
         for i = 1, 4 do
             turtle.forward()
         end
