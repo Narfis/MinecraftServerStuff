@@ -46,6 +46,7 @@ function CreateFarm()
     turtle.up()
     turtle.turnRight()
     turtle.turnRight()
+    turtle.select(utils.isInInv("minecraft:dirt",1))
     turtle.placeDown()
 
     PlaceFarm(getSize * 9, getSize * 9)
@@ -98,6 +99,7 @@ function FillBuckets(numberOfBuckets)
         end
         turtle.select(bucket)
         turtle.placeDown()
+        filledBuckets = filledBuckets + 1
     end
 end
 
