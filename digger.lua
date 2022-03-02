@@ -32,16 +32,21 @@ function FarmWood(woodTypes)
         local choppedTrees = 0
         for j = 1, depth do
             FindTree(woodTypes)
-            ChopTree(woodTypes)
+            local yes = ChopTree(woodTypes)
+            print(yes)
+            choppedTrees = choppedTrees + 1
+            PlantSapling()
         end
     end
 end
 
 function FindTree(woodTypes)
     local found = false
+    local type = nil
     while found == false do
         hasBlock, data = turtle.inspect()
         if utils.contains(woodTypes, data.name) then
+            type = data.name
             found = true
         end
         
@@ -53,6 +58,7 @@ function FindTree(woodTypes)
             digUtils.TryForward()
         end
     end
+    return type
 end
 
 function ChopTree(woodTypes)
@@ -73,3 +79,18 @@ function ChopTree(woodTypes)
         turtle.down()
     end
 end
+
+function PlantSapling(saplingType)
+    local slot = utils.isInInv(saplingType, 1)
+    if slot ~= -1 do
+        turtle.select(slot)
+        digUtils.TryForward()
+        turtle.turnRight()
+        turtle.turnRight()
+        turtle.place()
+        turtle.turnLeft()
+        turtle.turnLeft()
+    end
+end
+
+FarmWood(woods)
