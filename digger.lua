@@ -16,6 +16,10 @@ local woods = {
     "minecraft:oak_log"
 }
 
+local saplings = {
+    "minecraft:oak_sapling"
+}
+
 function FarmWood(woodTypes)
 
     io.write("Width : ")
@@ -32,10 +36,10 @@ function FarmWood(woodTypes)
         local choppedTrees = 0
         for j = 1, depth do
             FindTree(woodTypes)
-            local yes = ChopTree(woodTypes)
-            print(yes)
+            local type = ChopTree(woodTypes)
+            type = GetType(type)
             choppedTrees = choppedTrees + 1
-            PlantSapling()
+            PlantSapling(type)
         end
     end
 end
@@ -82,7 +86,7 @@ end
 
 function PlantSapling(saplingType)
     local slot = utils.isInInv(saplingType, 1)
-    if slot ~= -1 do
+    if slot ~= -1 then
         turtle.select(slot)
         digUtils.TryForward()
         turtle.turnRight()
@@ -90,6 +94,14 @@ function PlantSapling(saplingType)
         turtle.place()
         turtle.turnLeft()
         turtle.turnLeft()
+    end
+end
+
+function GetType(woodType)
+    for i = 1, utils.tableLength(woods) do
+        if woods[i] == woodType then
+            return saplings[i]
+        end
     end
 end
 
