@@ -31,9 +31,12 @@ function CreateFarm()
     turtle.equipRight()
     turtle.select(1)
     digUtils.DigRectangle(getSize * 9, getSize * 9, height, true)
-    turtle.turnRight()
-    turtle.turnRight()
     turtle.up()
+    turtle.dig()
+    turtle.turnRight()
+    turtle.turnRight()
+    turtle.back()
+    
     PlaceFarm(getSize * 9, getSize * 9)
 end
 
@@ -44,20 +47,20 @@ function PlaceFarm(width, height)
             if turtle.getItemCount() <= 0 then
                 turtle.select(utils.isInInv("minecraft:dirt", 1))
             end
+            turtle.forward()
             turtle.placeDown()
-            if width ~= (getSize * 9) or height ~= (getSize * 9) then
-                turtle.forward()
-            end
 
         end
         if i % 2 == 0 then
             turtle.turnRight()
             turtle.forward()
             turtle.turnRight()
+            turtle.forward()
         else
             turtle.turnLeft()
             turtle.forward()
             turtle.turnLeft()
+            turtle.forward()
         end
     end
 end
