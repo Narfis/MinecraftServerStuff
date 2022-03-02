@@ -36,7 +36,7 @@ function CreateFarm()
     turtle.turnRight()
     turtle.turnRight()
     turtle.back()
-    
+
     PlaceFarm(getSize * 9, getSize * 9)
 end
 
@@ -55,12 +55,10 @@ function PlaceFarm(width, height)
             turtle.turnRight()
             turtle.forward()
             turtle.turnRight()
-            turtle.forward()
         else
             turtle.turnLeft()
             turtle.forward()
             turtle.turnLeft()
-            turtle.forward()
         end
     end
 end
