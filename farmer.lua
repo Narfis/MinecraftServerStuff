@@ -51,16 +51,22 @@ function PlaceFarm(width, height)
             turtle.placeDown()
 
         end
-        if i % 2 == 0 then
-            turtle.turnRight()
+        if i == width then
             turtle.forward()
             turtle.turnRight()
-            turtle.placeDown()
+            turtle.turnRight()
         else
-            turtle.turnLeft()
-            turtle.forward()
-            turtle.turnLeft()
-            turtle.placeDown()
+            if i % 2 == 0 then
+                turtle.turnRight()
+                turtle.forward()
+                turtle.turnRight()
+                turtle.placeDown()
+            else
+                turtle.turnLeft()
+                turtle.forward()
+                turtle.turnLeft()
+                turtle.placeDown()
+            end
         end
     end
 end
