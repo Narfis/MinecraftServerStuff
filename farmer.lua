@@ -3,6 +3,7 @@ os.loadAPI("libs/utils.lua")
 
 
 function CreateFarm()
+    print("Size: ")
     local getSize = tonumber(read())
     local height = 2
     local totalDirt = 0
@@ -28,12 +29,12 @@ function CreateFarm()
         return
     end
 
+    turtle.select(getPickaxe)
+    turtle.equipRight()
     local yeet = CreateWaterSource()
     if yeet == -1 then
         return
     end
-    turtle.select(getPickaxe)
-    turtle.equipRight()
     turtle.select(1)
     digUtils.DigRectangle(getSize * 9, getSize * 9, height, true)
     turtle.up()
