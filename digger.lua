@@ -45,36 +45,37 @@ function FarmWood(woodTypes)
             choppedTrees = choppedTrees + 1
             PlantSapling(type)
         end
+        
+        if i < width then
+            if left then
+                left = false
+                turtle.turnLeft()
+                
+                local type = FindTree(woodTypes)
+                ChopTree(woodTypes)
+                type = GetType(type)
 
-        if left then
-            left = false
-            turtle.turnLeft()
-            
-            local type = FindTree(woodTypes)
-            ChopTree(woodTypes)
-            type = GetType(type)
+                turtle.turnLeft()
 
-            turtle.turnLeft()
+                PlantSapling(type)
 
-            PlantSapling(type)
+            else
+                left = true
+                turtle.turnRight()
+                
+                local type = FindTree(woodTypes)
+                ChopTree(woodTypes)
+                type = GetType(type)
 
-        else
-            left = true
-            turtle.turnRight()
-            
-            local type = FindTree(woodTypes)
-            ChopTree(woodTypes)
-            type = GetType(type)
+                turtle.turnRight()
 
-            turtle.turnRight()
+                PlantSapling(type)
+            end
 
-            PlantSapling(type)
+            if i == 1 then
+                depth = depth - 1
+            end
         end
-
-        if i == 1 then
-            depth = depth - 1
-        end
-
     end
 end
 
