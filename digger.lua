@@ -37,16 +37,15 @@ function FarmWood(woodTypes)
     local slot = 0
 
     for i = 1, width do
-        if i == 1 then
-            depth = depth - 1
-        end
         local choppedTrees = 0
         for j = 1, depth do
             local type = FindTree(woodTypes)
             ChopTree(woodTypes)
             type = GetType(type)
             choppedTrees = choppedTrees + 1
-            PlantSapling(type)
+            if (j < depth) then
+                PlantSapling(type)
+            end
         end
         
         if i < width then
@@ -74,6 +73,9 @@ function FarmWood(woodTypes)
 
                 PlantSapling(type)
             end
+        end
+        if i == 1 then
+            depth = depth - 1
         end
     end
 end
