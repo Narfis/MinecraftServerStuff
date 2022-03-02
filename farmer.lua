@@ -57,7 +57,7 @@ function CreateWaterSource()
     end
     if waters > 1 then
         local sel = utils.isInInv("minecraft:dirt", 1)
-        while turtle.getItemCount(sel) < 8 do
+        while turtle.getItemCount(sel) < 12 do
             sel = utils.isInInv("minecraft:dirt", sel + 1)
             if sel == -1 then
                 print("No can do")
