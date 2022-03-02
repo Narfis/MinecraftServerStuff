@@ -9,9 +9,9 @@ local directions = {
     BACK = 6
 }
 
-function DigRectangle(width, depth, height)
+function DigRectangle(width, depth, height, digUp)
     TryForward()
-    local up = false
+    local up = digUp
     for i = 1, width do
         if i ~= 1 then
             if i % 2 == 0 then
