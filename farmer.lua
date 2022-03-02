@@ -223,6 +223,8 @@ function main()
         return
     elseif choice == 2 then
         CreateFarm()
+    elseif choice == 3 then
+        CreateWaterHoles(9)
     end
 end
 
