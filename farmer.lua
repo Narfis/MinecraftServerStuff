@@ -27,6 +27,11 @@ function CreateFarm()
         print("Not enough dirt bitchass")
         return
     end
+
+    local yeet = CreateWaterSource()
+    if yeet == -1 then
+        return
+    end
     turtle.select(getPickaxe)
     turtle.equipRight()
     turtle.select(1)
@@ -37,6 +42,52 @@ function CreateFarm()
     turtle.placeDown()
 
     PlaceFarm(getSize * 9, getSize * 9)
+end
+
+function CreateWaterSource()
+    local waters = 0
+    for i = 1, 16 do
+        if turtle.getItemCount(i) > 0 then
+            if turtle.getItemDetail(i).name == "minecraft:water_bucket" then
+                waters = waters + turtle.getItemCount(i)
+            end
+        end
+    end
+    if waters > 1 then
+        local sel = utils.isInInv("minecraft:dirt", 1)
+        while turtle.getItemCount(sel) < 4 do
+            sel = utils.isInInv("minecraft:dirt", sel + 1)
+            if sel == -1 then
+                print("No can do")
+                return -1
+            end
+        end
+        turtle.turnRight()
+        turtle.dig()
+        turtle.forward()
+        turtle.digDown()
+        turtle.down()
+        turtle.placeDown()
+        turtle.dig()
+        turtle.forward()
+        turtle.placeDown()
+        turtle.turnRight()
+        turtle.dig()
+        turtle.forward()
+        turtle.placeDown()
+        turtle.turnRight()
+        turtle.dig()
+        turtle.forward()
+        turtle.placeDown()
+        turtle.turnRight()
+        turtle.forward()
+        turtle.turnLeft()
+        turtle.up()
+        turtle.turnLeft()
+        turtle.forward()
+        turtle.turnRight()
+        
+    end
 end
 
 function PlaceFarm(width, height)
