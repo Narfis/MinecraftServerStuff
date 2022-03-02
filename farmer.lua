@@ -68,11 +68,12 @@ end
 function CreateWaterHoles(size)
     turtle.forward()
     for j = 1, size/9 do
-        for i = 1, 4 do
+        for i = 1, 9 do
             turtle.forward()
         end
         turtle.turnLeft()
         for i = 1, size do
+            turtle.forward()
             if (i+5) % 9 == 0 then
                 turtle.digDown()
                 turtle.down()
@@ -82,7 +83,6 @@ function CreateWaterHoles(size)
                 turtle.select(utils.isInInv("minecraft:water_bucket", 1))
                 turtle.placeDown()
             end
-            turtle.forward()
         end
         turtle.turnRight()
         turtle.turnRight()
@@ -226,7 +226,7 @@ function main()
     elseif choice == 2 then
         CreateFarm()
     elseif choice == 3 then
-        CreateWaterHoles(9)
+        CreateWaterHoles(27)
     end
 end
 
