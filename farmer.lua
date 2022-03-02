@@ -5,6 +5,10 @@ os.loadAPI("libs/utils.lua")
 function CreateFarm()
     print("Size: ")
     local getSize = tonumber(read())
+    if getSize % 2 == 0 then
+        print("No, only odd numbers please")
+        return
+    end
     local height = 2
     local totalDirt = 0
     for i = 1, 16 do
