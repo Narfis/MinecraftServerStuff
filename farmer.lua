@@ -32,10 +32,8 @@ function CreateFarm()
     turtle.select(1)
     digUtils.DigRectangle(getSize * 9, getSize * 9, height, true)
     turtle.up()
-    turtle.dig()
     turtle.turnRight()
     turtle.turnRight()
-    turtle.back()
 
     PlaceFarm(getSize * 9, getSize * 9)
 end
