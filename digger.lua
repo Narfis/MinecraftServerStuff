@@ -45,7 +45,11 @@ function FindTree(woodTypes)
             found = true
         end
         
-        if string.match("sapling", data.name) == nil then
+        if hasBlock then
+            if string.match("sapling", data.name) == nil then
+                digUtils.TryForward()
+            end
+        else
             digUtils.TryForward()
         end
     end
