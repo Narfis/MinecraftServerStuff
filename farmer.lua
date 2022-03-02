@@ -18,6 +18,7 @@ function CreateFarm()
             end
         end
     end
+    totalDirt = totalDirt + (10 * getSize)
     turtle.select(utils.getEmptySpace())
     turtle.equipRight()
     local getPickaxe = utils.isInInv("minecraft:diamond_pickaxe", 1)
@@ -48,6 +49,56 @@ function CreateFarm()
     turtle.placeDown()
 
     PlaceFarm(getSize * 9, getSize * 9)
+    turtle.turnRight()
+    turtle.forward()
+    turtle.turnLeft()
+    turtle.turnLeft()
+    local bucketErr = FillBuckets(getSize^2)
+    if bucketErr == -1 then
+        print("Get more buckets")
+        return
+    end
+    CreateWaterHoles(getSize * 9)
+end
+
+function CreateWaterHoles(size)
+    turtle.forward()
+    turtle.turnLeft()
+    for i = 1, 5 do
+        turtle.forward()
+    end
+    turtle.turnRight()
+    for i = 1, size do
+        if i % 5 == 0 then
+            turtle.digDown()
+            turtle.down()
+            turtle.select(utils.isInInv("minecraft:dirt", 1))
+            turtle.placeDown()
+            turtle.up()
+            turtle.select(utils.isInInv("minecraft:water_bucket", 1))
+            turtle.placeDown()
+        end
+        turtle.forward()
+    end
+    turtle.turnRight()
+    turtle.turnRight()
+    for i = 1, size do
+        turtle.forward()
+    end
+
+end
+
+
+function FillBuckets(numberOfBuckets)
+    local filledBuckets = 0
+    while filledBuckets < numberOfBuckets do
+        local bucket = utils.isInInv("minecraft:bucket", 1)
+        if bucket == -1 then
+            return -1
+        end
+        turtle.select(bucket)
+        turtle.placeDown()
+    end
 end
 
 function CreateWaterSource()
