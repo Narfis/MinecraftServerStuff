@@ -7,7 +7,7 @@ function contains(table, val)
     return false
 end
 
-function tableLength(table, val)
+function tableLength(table)
     local count = 0
     for i in ipairs(table) do
         count = count + 1
