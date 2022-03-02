@@ -65,6 +65,21 @@ function CreateFarm()
     CreateWaterHoles(getSize * 9)
 end
 
+function GoBackAndFill(stage, size)
+    stage = stage - 1
+
+    for i = 1, (5 + (stage * 9)) do
+        turtle.forward()
+    end
+    turtle.turnLeft()
+    FillBuckets(size/9)
+    turtle.turnLeft()
+    turtle.turnLeft()
+    turtle.forward()
+    turtle.turnRight()
+    turtle.forward()
+end
+
 function CreateWaterHoles(size)
     turtle.forward()
     for j = 1, size/9 do
@@ -95,7 +110,8 @@ function CreateWaterHoles(size)
         for i = 1, size do
             turtle.forward()
         end
-        turtle.turnLeft()
+        turtle.turnRight()
+        GoBackAndFill(j, size)
     end
 
 end
@@ -106,7 +122,10 @@ function FillBuckets(numberOfBuckets)
     while filledBuckets < numberOfBuckets do
         local bucket = utils.isInInv("minecraft:bucket", 1)
         if bucket == -1 then
-            return -1
+            bucket = utils.isInInv("minecraft:water_bucket", 1)
+            if bucket == -1 then
+                return -1
+            end
         end
         turtle.select(bucket)
         turtle.placeDown()
