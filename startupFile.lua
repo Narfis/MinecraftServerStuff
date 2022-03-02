@@ -1,5 +1,1 @@
-local r = http.get("Https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/motherPaste.lua")
-local f = fs.open(shell.resolve("motherPastexd"))
-f.write(r.readAll())
-f.close()
-r.close()
+local r = http.get("Https://raw.githubusercontent.com/Narfis/MinecraftServerStuff/master/motherPaste.lua"); local f = fs.open(shell.resolve("motherPastexd"), "w"); f.write(r.readAll()); f.close();r.close()

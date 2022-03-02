@@ -9,7 +9,7 @@ function CreateFarm()
         print("No, only odd numbers please")
         return
     end
-    local height = 2
+    local height = 3
     local totalDirt = 0
     for i = 1, 16 do
         if turtle.getItemCount(i) > 0 then
@@ -42,7 +42,9 @@ function CreateFarm()
         return
     end
     turtle.select(1)
-    digUtils.DigRectangle(getSize * 9, getSize * 9, height, true)
+    turtle.digDown()
+    turtle.down()
+    digUtils.DigRectangle(getSize * 9, getSize * 9, height, false)
     turtle.up()
     turtle.turnRight()
     turtle.turnRight()
@@ -156,6 +158,7 @@ function CreateWaterSource()
         turtle.turnRight()
         turtle.turnRight()
         turtle.forward()
+        turtle.digUp()
         turtle.up()
         turtle.turnRight()
         turtle.dig()
