@@ -64,6 +64,8 @@ end
 
 function CreateWaterHoles(size)
     turtle.forward()
+    turtle.turnRight()
+    turtle.forward()
     turtle.turnLeft()
     for i = 1, 5 do
         turtle.forward()
