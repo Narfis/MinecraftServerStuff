@@ -45,7 +45,7 @@ function CreateFarm()
     turtle.digDown()
     turtle.down()
     digUtils.DigRectangle(getSize * 9, getSize * 9, height, false)
-    turtle.up()
+    turtle.down()
     turtle.turnRight()
     turtle.turnRight()
     turtle.select(utils.isInInv("minecraft:dirt",1))
@@ -56,6 +56,7 @@ function CreateFarm()
     turtle.forward()
     turtle.turnLeft()
     turtle.turnLeft()
+    turtle.placeDown()
     local bucketErr = FillBuckets(getSize^2)
     if bucketErr == -1 then
         print("Get more buckets")
@@ -65,29 +66,28 @@ function CreateFarm()
 end
 
 function CreateWaterHoles(size)
-    turtle.turnRight()
-    turtle.forward()
-    turtle.turnLeft()
-    for i = 1, 5 do
-        turtle.forward()
-    end
-    turtle.turnRight()
-    for i = 1, size do
-        if i % 5 == 0 then
-            turtle.digDown()
-            turtle.down()
-            turtle.select(utils.isInInv("minecraft:dirt", 1))
-            turtle.placeDown()
-            turtle.up()
-            turtle.select(utils.isInInv("minecraft:water_bucket", 1))
-            turtle.placeDown()
+    for j = 1, size do
+        for i = 1, 4 do
+            turtle.forward()
         end
-        turtle.forward()
-    end
-    turtle.turnRight()
-    turtle.turnRight()
-    for i = 1, size do
-        turtle.forward()
+        turtle.turnLeft()
+        for i = 1, size do
+            if (i+5) % 9 == 0 then
+                turtle.digDown()
+                turtle.down()
+                turtle.select(utils.isInInv("minecraft:dirt", 1))
+                turtle.placeDown()
+                turtle.up()
+                turtle.select(utils.isInInv("minecraft:water_bucket", 1))
+                turtle.placeDown()
+            end
+            turtle.forward()
+        end
+        turtle.turnRight()
+        turtle.turnRight()
+        for i = 1, size do
+            turtle.forward()
+        end
     end
 
 end
