@@ -64,6 +64,7 @@ function CreateWaterSource()
                 return -1
             end
         end
+        turtle.select(sel)
         turtle.turnRight()
         turtle.dig()
         turtle.forward()
