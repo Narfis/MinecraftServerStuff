@@ -17,8 +17,9 @@ function CreateFarm()
     turtle.select(utils.getEmptySpace())
     turtle.equipRight()
     local getPickaxe = utils.isInInv("minecraft:diamond_pickaxe", 1)
-    if  getPickaxe == -1 then
-        print("Get a diamond diamond pickaxe before you start")
+    local getHoe = utils.isInInv("minecraft:diamond_hoe", 1)
+    if  getPickaxe == -1 or getHoe == -1 then
+        print("Get a diamond diamond pickaxe and a diamond hoe before you start")
         sleep(2)
         print("bitch")
         return
