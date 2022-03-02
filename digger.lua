@@ -29,47 +29,25 @@ function FarmWood(woodTypes)
     local slot = 0
 
     for i = 1, width do
+        local choppedTrees = 0
         for j = 1, depth do
-            local has_block, data = turtle.inspect()
-            if utils.contains(woodTypes, data.name) then
-                chop = true
-            end
-            digUtils.TryForward()
-            if plant then
-                plant = false
-                turtle.turnRight()
-                turtle.turnRight()
-                turtle.select(slot)
-                turtle.place()
-                turtle.turnLeft()
-                turtle.turnLeft()
-            end
-            if chop then
-                chop = false
-                ChopTree(woodTypes)
-                slot = utils.isInInv("minecraft:oak_sapling", 1)
-                if slot ~= -1 then
-                    plant = true
-                end
-            end
+            FindTree(woodTypes)
+            ChopTree(woodTypes)
         end
+    end
+end
 
-        if left then
-            left = false
-            turtle.turnLeft()
-            digUtils.TryForward()
-            digUtils.TryForward()
-            digUtils.TryForward()
-            turtle.turnLeft()
-        else
-            left = true
-            turtle.turnRight()
-            digUtils.TryForward()
-            digUtils.TryForward()
-            digUtils.TryForward()
-            turtle.turnRight()
+function FindTree(woodTypes)
+    local found = false
+    while found == false do
+        hasBlock, data = turtle.inspect()
+        if utils.contains(woodTypes, data.name) then
+            found = true
         end
-
+        
+        if string.match("sapling", data.name) == nil then
+            digUtils.TryForward()
+        end
     end
 end
 
