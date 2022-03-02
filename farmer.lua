@@ -34,6 +34,7 @@ function CreateFarm()
     turtle.up()
     turtle.turnRight()
     turtle.turnRight()
+    turtle.placeDown()
 
     PlaceFarm(getSize * 9, getSize * 9)
 end
