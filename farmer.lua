@@ -85,9 +85,9 @@ function CreateWaterSource()
         turtle.up()
         turtle.turnLeft()
         turtle.forward()
-        turtle.turnRight()
-        
+        turtle.turnRight() 
     end
+    return -1
 end
 
 function PlaceFarm(width, height)
