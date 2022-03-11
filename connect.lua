@@ -5,13 +5,14 @@ computerID = nil
 while computerID == nil do
     rednet.broadcast("connect")
     local id, data, c, d, e = rednet.receive(2)
-    if a ~= nil then
-        local lastA = tonumber(id)
+    if id ~= nil then
+        local lastId = tonumber(id)
         for i = 1, 10 do
-            rednet.send(lastA, "arp")
+            rednet.send(lastId, "arp")
             id, data, c, d, e = rednet.receive(2)
-            if tonumber(a) == lastA then
-                computerID = lastA
+            if tonumber(id) == lastId then
+                computerID = lastId
+                break
             end
         end
     end
