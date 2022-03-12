@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <!-- <script src="server.js"></script> -->
         <script>
-            const ws = new WebSocket("ws://localhost:8081")
-            function moveTurtleForward(){
+            var ws = new WebSocket("wss://turtle.scripter.life:8081")
+            //ws.onopen = function() {
+                  
+                // Web Socket is connected, send data using send()
+             //   ws.send("Message to send");
+             //   alert("Message is sent...");
+           // };
+      /*      function moveTurtleForward(){
                 ws.send("return turtle.forward()")
             }
             function moveTurtleRight(){
@@ -11,7 +18,7 @@
             }              
             ws.addEventListener("message",msg=>{
                 console.log(msg.data)
-            })
+            })*/
             
         </script>
     </head>

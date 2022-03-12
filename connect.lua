@@ -12,7 +12,6 @@ while computerID == nil do
             id, data, c, d, e = rednet.receive(2)
             if tonumber(id) == lastId then
                 computerID = lastId
-                break
             end
         end
     end
